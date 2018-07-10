@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left">
-      <h3 class="title">vue-element-admin</h3>
+      <h3 class="title">{{$t('login.title')}}</h3>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
@@ -12,20 +12,33 @@
         <span class="svg-container">
           <svg-icon icon-class="password"></svg-icon>
         </span>
-        <el-input name="password" :type="pwdType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
-          placeholder="password"></el-input>
-          <span class="show-pwd" @click="showPwd"><svg-icon icon-class="eye" /></span>
+        <el-input name="password" :type="pwdType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on" placeholder="password"></el-input>
+        <span class="show-pwd" @click="showPwd">
+          <svg-icon icon-class="eye" />
+        </span>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" style="width:100%;" :loading="loading" @click.native.prevent="handleLogin">
-          Sign in
+          {{$t('login.logIn')}}
         </el-button>
       </el-form-item>
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: admin</span>
+        <span>{{$t('login.username')}} : admin</span>
+        <span>{{$t('login.password')}} : {{$t('login.any')}}</span>
+      </div>
+      <div class="tips">
+        <span style="margin-right:18px;">{{$t('login.username')}} : editor</span>
+        <span>{{$t('login.password')}} : {{$t('login.any')}}</span>
       </div>
     </el-form>
+
+    <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog" append-to-body>
+      {{$t('login.thirdpartyTips')}}
+      <br/>
+      <br/>
+      <br/>
+      <social-sign />
+    </el-dialog>
   </div>
 </template>
 
@@ -59,7 +72,8 @@ export default {
         password: [{ required: true, trigger: 'blur', validator: validatePass }]
       },
       loading: false,
-      pwdType: 'password'
+      pwdType: 'password',
+      showDialog: false
     }
   },
   methods: {
@@ -91,8 +105,8 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-$bg:#2d3a4b;
-$light_gray:#eee;
+$bg: #2d3a4b;
+$light_gray: #eee;
 
 /* reset element-ui css */
 .login-container {
@@ -121,13 +135,12 @@ $light_gray:#eee;
     color: #454545;
   }
 }
-
 </style>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-$bg:#2d3a4b;
-$dark_gray:#889aa4;
-$light_gray:#eee;
+$bg: #2d3a4b;
+$dark_gray: #889aa4;
+$light_gray: #eee;
 .login-container {
   position: fixed;
   height: 100%;
