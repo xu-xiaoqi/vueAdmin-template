@@ -211,6 +211,7 @@ export function getTime(type) {
   }
 }
 
+// 强制一个函数在某个连续时间段内只执行一次
 export function debounce(func, wait, immediate) {
   let timeout, args, context, timestamp, result
 

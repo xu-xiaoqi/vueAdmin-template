@@ -59,3 +59,21 @@ export default {
   }
 }
 </script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+.panel-group {
+  margin-top: 18px;
+  .card-panel-col {
+    margin-bottom: 32px;
+  }
+  .card-panel {
+    height: 108px;
+    cursor: pointer;
+    font-size: 12px;
+    overflow: hidden;
+    position: relative;
+    color: #666;
+  }
+}
+</style>
+
