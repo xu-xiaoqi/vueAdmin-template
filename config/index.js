@@ -34,7 +34,7 @@ module.exports = {
 
     // https://webpack.js.org/configuration/devtool/#development
     devtool: 'cheap-source-map',
-
+    // devtool: '#cheap-source-map',
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting

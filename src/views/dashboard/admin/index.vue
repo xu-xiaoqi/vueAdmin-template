@@ -7,6 +7,30 @@
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
       <line-chart :chart-data="lineChartData"></line-chart>
     </el-row>
+
+    <el-row :gutter="32">
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <raddar-chart></raddar-chart>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <pie-chart></pie-chart>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <bar-chart></bar-chart>
+        </div>
+      </el-col>
+    </el-row>
+    <el-row :gutter="8">
+      <el-col :xs="{span:24}" :sm="{span:24}" :md="{span:24}" :lg="{span:12}" :xl="{span:12}">
+        <transaction-table></transaction-table>
+      </el-col>
+    </el-row>
+
   </div>
 </template>
 
@@ -14,6 +38,10 @@
 import GithubCorner from '@/components/GithubCorner'
 import PanelGroup from './components/PanelGroup'
 import LineChart from './components/LineChart'
+import RaddarChart from './components/RaddarChart'
+import PieChart from './components/PieChart'
+import BarChart from './components/BarChart'
+import TransactionTable from './components/TransactionTable'
 
 const lineChartData = {
   newVisitis: {
@@ -39,7 +67,11 @@ export default {
   components: {
     GithubCorner,
     PanelGroup,
-    LineChart
+    LineChart,
+    RaddarChart,
+    PieChart,
+    BarChart,
+    TransactionTable
   },
   data() {
     return {
@@ -59,5 +91,10 @@ export default {
 .dashboard-editor-container {
   padding: 32px;
   background-color: rgb(240, 242, 245);
+  .chart-wrapper {
+    padding: 16px 16px 0;
+    background-color: #fff;
+    margin-bottom: 32px;
+  }
 }
 </style>
