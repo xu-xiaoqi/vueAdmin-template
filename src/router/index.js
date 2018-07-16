@@ -26,9 +26,9 @@ export const constantRouterMap = [
   { path: '/404', component: () => import('@/views/404'), hidden: true },
 
   {
-    path: '/',
+    path: '',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: 'dashboard',
     name: 'Dashboard',
     hidden: true,
     children: [{
@@ -36,7 +36,28 @@ export const constantRouterMap = [
       component: () => import('@/views/dashboard/index')
     }]
   },
-
+  {
+    path: '/documenttation',
+    component: Layout,
+    redirect: '/documenttation/index',
+    children: [{
+      path: 'index',
+      component: () => import('@/views/documentation/index'),
+      name: 'documentation',
+      meta: { title: 'documentation', icon: 'documentation', noCache: true }
+    }]
+  },
+  {
+    path: '/guide',
+    component: Layout,
+    redirect: '/guide/index',
+    children: [{
+      path: 'index',
+      component: () => import('@/views/guide/index'),
+      name: 'guide',
+      meta: { title: 'guide', icon: 'guide', noCache: true }
+    }]
+  },
   {
     path: '/example',
     component: Layout,
@@ -81,3 +102,29 @@ export default new Router({
   routes: constantRouterMap
 })
 
+export const asyncRouterMap = [
+  {
+    path: '/permission',
+    component: Layout,
+    redirect: '/permission/index',
+    alwaysShow: true, // will always show the root menu
+    meta: { title: 'permission', icon: 'lock', roles: ['admin', 'editor'] },
+    children: [{
+      path: 'page',
+      component: () => import('@/views/permission/page'),
+      name: 'pagePermission',
+      meta: {
+        title: 'pagePermission',
+        roles: ['admin'] // or you can only set roles in sub nav
+      }
+    }, {
+      path: 'directive',
+      component: () => import('@/views/permission/directive'),
+      name: 'directivePermission',
+      meta: {
+        title: 'directivePermission'
+        // if do not set roles, means: this page does not require permission
+      }
+    }]
+  }
+]
