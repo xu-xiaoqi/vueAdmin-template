@@ -126,5 +126,16 @@ export const asyncRouterMap = [
         // if do not set roles, means: this page does not require permission
       }
     }]
+  },
+  // icon
+  {
+    path: '/icon',
+    component: Layout,
+    children: [{
+      path: 'index',
+      comments: () => import('@/views/svg-icons/index'),
+      name: 'icons',
+      meta: { title: 'icons', icon: 'icon', noCache: true }
+    }]
   }
 ]
