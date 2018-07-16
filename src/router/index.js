@@ -137,5 +137,15 @@ export const asyncRouterMap = [
       name: 'icons',
       meta: { title: 'icons', icon: 'icon', noCache: true }
     }]
+  },
+  {
+    path: '/components',
+    component: Layout,
+    redirect: 'noredirect',
+    name: 'component-demo',
+    meta: { title: 'components', icon: 'compinent' },
+    children: [
+      { path: 'tinymce', component: () => import('@/views/components-demo/tinymce'), name: 'tinymce-demo', meta: { title: 'tinymce' }}
+    ]
   }
 ]
