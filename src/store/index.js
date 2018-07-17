@@ -4,14 +4,16 @@ import app from './modules/app'
 import errorLog from './modules/errorLog'
 import user from './modules/user'
 import getters from './getters'
+import permission from './modules/permission'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
     app,
-    user,
-    errorLog
+    errorLog,
+    permission,
+    user
   },
   getters
 })

@@ -143,9 +143,10 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: 'noredirect',
     name: 'component-demo',
-    meta: { title: 'components', icon: 'compinent' },
+    meta: { title: 'components', icon: 'component' },
     children: [
-      { path: 'tinymce', component: () => import('@/views/components-demo/tinymce'), name: 'tinymce-demo', meta: { title: 'tinymce' }}
+      { path: 'tinymce', component: () => import('@/views/components-demo/tinymce'), name: 'tinymce-demo', meta: { title: 'tinymce' }},
+      { path: 'markdown', component: () => import('@/views/components-demo/markdown'), name: 'markdown-demo', meta: { title: 'markdown' }}
     ]
   }
 ]
