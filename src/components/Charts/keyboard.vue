@@ -32,7 +32,7 @@ export default {
     }
   },
   mounted() {
-    this.initCharts()
+    this.initChart()
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -53,55 +53,45 @@ export default {
         data.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5)
         data2.push((Math.sin(i / 5) * (i / 5 + 10) + i / 6) * 3)
       }
-      this.chart.setOption({
-        backgroundColor: '#08263a',
-        xAxis: [
-          {
+      this.chart.setOption(
+        {
+          backgroundColor: '#08263a',
+          xAxis: [{
             show: false,
             data: xAxisData
-          },
-          {
+          }, {
             show: false,
             data: xAxisData
-          }
-        ],
-        visualMap: {
-          show: false,
-          min: 0,
-          max: 50,
-          dimension: 0,
-          inRange: {
-            color: [
-              '#4a657a',
-              '#308e92',
-              '#b1cfa5',
-              '#f5d69f',
-              '#f5898b',
-              '#ef5055'
-            ]
-          }
-        },
-        yAxis: {
-          axisLine: {
-            show: false
-          },
-          axisLabel: {
-            textStyle: {
-              color: '#4a657a'
+          }],
+          visualMap: {
+            show: false,
+            min: 0,
+            max: 50,
+            dimension: 0,
+            inRange: {
+              color: ['#4a657a', '#308e92', '#b1cfa5', '#f5d69f', '#f5898b', '#ef5055']
             }
           },
-          splitLine: {
-            show: true,
-            lineStyle: {
-              color: '#08263f'
+          yAxis: {
+            axisLine: {
+              show: false
+            },
+            axisLabel: {
+              textStyle: {
+                color: '#4a657a'
+              }
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: '#08263f'
+              }
+            },
+            axisTick: {
+              show: false
             }
           },
-          axisTick: {
-            show: false
-          }
-        },
-        series: [
-          {
+          series: [{
             name: 'back',
             type: 'bar',
             data: data2,
@@ -114,8 +104,7 @@ export default {
                 shadowColor: '#111'
               }
             }
-          },
-          {
+          }, {
             name: 'Simulate Shadow',
             type: 'line',
             data,
@@ -136,8 +125,7 @@ export default {
                 shadowColor: '#000'
               }
             }
-          },
-          {
+          }, {
             name: 'front',
             type: 'bar',
             data,
@@ -148,21 +136,17 @@ export default {
                 barBorderRadius: 5
               }
             }
+          }],
+          animationEasing: 'elasticOut',
+          animationEasingUpdate: 'elasticOut',
+          animationDelay(idx) {
+            return idx * 20
+          },
+          animationDelayUpdate(idx) {
+            return idx * 20
           }
-        ],
-        animationEasing: 'elasticOut',
-        animationEasingUpdate: 'elasticOut',
-        animationDelay(idx) {
-          return idx * 20
-        },
-        animationDelayUpdate(idx) {
-          return idx * 20
-        }
-      })
+        })
     }
   }
 }
 </script>
-
-<style scoped>
-</style>

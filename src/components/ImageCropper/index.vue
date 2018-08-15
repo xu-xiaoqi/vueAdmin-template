@@ -1381,6 +1381,7 @@ export default {
         top: 9px;
         left: 4px;
         width: 13px;
+        height: 2px;
         background-color: #d10;
         -webkit-transform: rotate(45deg);
             -ms-transform: rotate(45deg);
