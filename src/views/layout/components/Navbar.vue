@@ -5,16 +5,16 @@
     <breadcrumb class="breadcrumb-container"></breadcrumb>
 
     <div class="right-menu">
-      <!-- <error-log class="errLog-container right-menu-item"></error-log> -->
+      <error-log class="errLog-container right-menu-item"></error-log>
 
       <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
         <screenfull class="screenfull right-menu-item"></screenfull>
       </el-tooltip>
 
-      <!-- <lang-select class="international right-menu-item"></lang-select> -->
+      <lang-select class="international right-menu-item"></lang-select>
 
       <el-tooltip effect="dark" :content="$t('navbar.theme')" placement="bottom">
-        <!-- <theme-picker class="theme-switch right-menu-item"></theme-picker> -->
+        <theme-picker class="theme-switch right-menu-item"></theme-picker>
       </el-tooltip>
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
@@ -46,19 +46,19 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
-// import ErrorLog from '@/components/ErrorLog'
+import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
-// import LangSelect from '@/components/LangSelect'
-// import ThemePicker from '@/components/ThemePicker'
+import LangSelect from '@/components/LangSelect'
+import ThemePicker from '@/components/ThemePicker'
 
 export default {
   components: {
     Breadcrumb,
     Hamburger,
-    // ErrorLog,
-    Screenfull
-    // LangSelect,
-    // ThemePicker
+    ErrorLog,
+    Screenfull,
+    LangSelect,
+    ThemePicker
   },
   computed: {
     ...mapGetters([

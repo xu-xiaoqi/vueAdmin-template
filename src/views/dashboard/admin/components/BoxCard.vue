@@ -18,7 +18,7 @@
         <span>Css</span>
         <el-progress :percentage="12"></el-progress>
       </div>
-      <div class='progress-item'>
+       <div class='progress-item'>
         <span>ESLint</span>
         <el-progress :percentage="100" status="success"></el-progress>
       </div>
@@ -39,13 +39,15 @@ export default {
       statisticsData: {
         article_count: 1024,
         pageviews_count: 1024
-      },
-      avatar:
-        'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
+      }
     }
   },
   computed: {
-    ...mapGetters(['name', 'roles'])
+    ...mapGetters([
+      'name',
+      'avatar',
+      'roles'
+    ])
   },
   filters: {
     statusFilter(status) {
@@ -60,9 +62,9 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" >
-.box-card-component {
+.box-card-component{
   .el-card__header {
-    padding: 0px !important;
+    padding: 0px!important;
   }
 }
 </style>
@@ -90,25 +92,25 @@ export default {
   }
   .panThumb {
     z-index: 100;
-    height: 70px !important;
-    width: 70px !important;
-    position: absolute !important;
+    height: 70px!important;
+    width: 70px!important;
+    position: absolute!important;
     top: -45px;
     left: 0px;
     border: 5px solid #ffffff;
     background-color: #fff;
     margin: auto;
-    box-shadow: none !important;
+    box-shadow: none!important;
     /deep/ .pan-info {
-      box-shadow: none !important;
+      box-shadow: none!important;
     }
   }
   .progress-item {
     margin-bottom: 10px;
     font-size: 14px;
   }
-  @media only screen and (max-width: 1510px) {
-    .mallki-text {
+  @media only screen and (max-width: 1510px){
+    .mallki-text{
       display: none;
     }
   }

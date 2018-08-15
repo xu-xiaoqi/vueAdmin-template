@@ -3,7 +3,8 @@
     <p class="warn-content">
       <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank">countTo-component</a>
     </p>
-    <count-to ref="example" class="example" :start-val="_startVal" :end-val="_endVal" :duration="_duration" :decimals="_decimals" :separator="_separator" :prefix="_prefix" :suffix="_suffix" :autoplay="false"></count-to>
+    <count-to ref="example" class="example" :start-val="_startVal" :end-val="_endVal" :duration="_duration" :decimals="_decimals"
+      :separator="_separator" :prefix="_prefix" :suffix="_suffix" :autoplay="false"></count-to>
     <div style="margin-left: 25%;margin-top: 40px;">
       <label class="label" for="startValInput">startVal:
         <input type="number" v-model.number="setStartVal" name="startValInput" />
@@ -30,8 +31,9 @@
         <input v-model="setSuffix" name="suffixInput" />
       </label>
     </div>
-    <code>&lt;count-to :start-val=&#x27;{{_startVal}}&#x27; :end-val=&#x27;{{_endVal}}&#x27; :duration=&#x27;{{_duration}}&#x27; :decimals=&#x27;{{_decimals}}&#x27; :separator=&#x27;{{_separator}}&#x27; :prefix=&#x27;{{_prefix}}&#x27; :suffix=&#x27;{{_suffix}}&#x27; :autoplay=false&gt;
-    </code>
+    <code>&lt;count-to :start-val=&#x27;{{_startVal}}&#x27; :end-val=&#x27;{{_endVal}}&#x27; :duration=&#x27;{{_duration}}&#x27;
+      :decimals=&#x27;{{_decimals}}&#x27; :separator=&#x27;{{_separator}}&#x27; :prefix=&#x27;{{_prefix}}&#x27; :suffix=&#x27;{{_suffix}}&#x27;
+      :autoplay=false&gt;</code>
   </div>
 </template>
 
@@ -126,22 +128,22 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  transition: all .3s cubic-bezier(.645, .045, .355, 1);
   position: relative;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, .65);
   background-color: #fff;
   border-color: #d9d9d9;
 }
 
 .example-btn:hover {
-  color: #4ab7bd;
+  color: #4AB7BD;
   background-color: #fff;
-  border-color: #4ab7bd;
+  border-color: #4AB7BD;
 }
 .example {
   font-size: 50px;
-  color: #f6416c;
+  color: #F6416C;
   display: block;
   margin: 10px 0;
   text-align: center;
@@ -165,38 +167,38 @@ input {
   cursor: text;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, .65);
   background-color: #fff;
   background-image: none;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .startBtn {
   margin-left: 20px;
   font-size: 20px;
-  color: #30b08f;
+  color: #30B08F;
   background-color: #fff;
 }
 
 .startBtn:hover {
-  background-color: #30b08f;
+  background-color: #30B08F;
   color: #fff;
-  border-color: #30b08f;
+  border-color: #30B08F;
 }
 
 .pause-resume-btn {
   font-size: 20px;
-  color: #e65d6e;
+  color: #E65D6E;
   background-color: #fff;
 }
 
 .pause-resume-btn:hover {
-  background-color: #e65d6e;
+  background-color: #E65D6E;
   color: #fff;
-  border-color: #e65d6e;
+  border-color: #E65D6E;
 }
 </style>
 

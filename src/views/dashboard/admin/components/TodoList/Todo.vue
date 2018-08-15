@@ -1,13 +1,23 @@
 <template>
   <li class="todo" :class="{ completed: todo.done, editing: editing }">
     <div class="view">
-      <input class="toggle" type="checkbox" :checked="todo.done" @change="toggleTodo( todo )">
-      <label v-text="todo.text" @dblclick="editing=true"></label>
+      <input class="toggle"
+        type="checkbox"
+        :checked="todo.done"
+        @change="toggleTodo( todo)">
+      <label v-text="todo.text" @dblclick="editing = true"></label>
       <button class="destroy" @click="deleteTodo( todo )"></button>
     </div>
-    <input class="edit" v-focus="editing" v-show="editing" :value="todo.text" @keyup.enter="doneEdit" @keyup.esc="cancelEdit" @blur="doneEdit">
+    <input class="edit"
+      v-show="editing"
+      v-focus="editing"
+      :value="todo.text"
+      @keyup.enter="doneEdit"
+      @keyup.esc="cancelEdit"
+      @blur="doneEdit">
   </li>
 </template>
+
 <script>
 export default {
   name: 'Todo',
@@ -27,25 +37,22 @@ export default {
     }
   },
   methods: {
-    toggleTodo(todo) {
-      this.$emit('toggleTodo', todo)
-    },
     deleteTodo(todo) {
       this.$emit('deleteTodo', todo)
     },
     editTodo({ todo, value }) {
       this.$emit('editTodo', { todo, value })
     },
-    cancelEdit(e) {
-      console.log(e)
-      e.target.value = this.todo.text
-      this.editing = false
+    toggleTodo(todo) {
+      this.$emit('toggleTodo', todo)
     },
     doneEdit(e) {
       const value = e.target.value.trim()
       const { todo } = this
       if (!value) {
-        this.deleteTodo({ todo })
+        this.deleteTodo({
+          todo
+        })
       } else if (this.editing) {
         this.editTodo({
           todo,
@@ -53,6 +60,10 @@ export default {
         })
         this.editing = false
       }
+    },
+    cancelEdit(e) {
+      e.target.value = this.todo.text
+      this.editing = false
     }
   }
 }

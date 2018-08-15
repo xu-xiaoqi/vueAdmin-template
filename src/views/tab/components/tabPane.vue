@@ -1,8 +1,10 @@
 <template>
-  <el-table :data="list" border fit highlight-current-row style="width:100%">
-    <el-table-column align="center" label="ID" width="65" v-loading="loading" element-loading-text="请给我点时间！">
+  <el-table :data="list" border fit highlight-current-row style="width: 100%">
+
+    <el-table-column align="center" label="ID" width="65"  v-loading="loading"
+    element-loading-text="请给我点时间！">
       <template slot-scope="scope">
-        <span> {{scope.row.id}}</span>
+        <span>{{scope.row.id}}</span>
       </template>
     </el-table-column>
 
@@ -42,6 +44,7 @@
         <el-tag :type="scope.row.status | statusFilter">{{scope.row.status}}</el-tag>
       </template>
     </el-table-column>
+
   </el-table>
 </template>
 

@@ -1,11 +1,17 @@
 <template>
   <div class="components-container">
     <code>This is based on
-      <a class="link-type" href="//github.com/dai-siki/vue-image-crop-upload"> vue-image-crop-upload</a>. {{$t('components.imageUploadTips')}}
+      <a class="link-type" href="//github.com/dai-siki/vue-image-crop-upload"> vue-image-crop-upload</a>.
+      {{$t('components.imageUploadTips')}}
     </code>
+
     <pan-thumb :image="image"></pan-thumb>
+
     <el-button type="primary" icon="upload" style="position: absolute;bottom: 15px;margin-left: 40px;" @click="imagecropperShow=true">Change avatar
     </el-button>
+
+    <image-cropper :width="300" :height="300" url="https://httpbin.org/post" @close='close' @crop-upload-success="cropSuccess" langType="en"
+      :key="imagecropperKey" v-show="imagecropperShow"></image-cropper>
   </div>
 </template>
 
@@ -15,10 +21,7 @@ import PanThumb from '@/components/PanThumb'
 
 export default {
   name: 'avatarUpload-demo',
-  components: {
-    ImageCropper,
-    PanThumb
-  },
+  components: { ImageCropper, PanThumb },
   data() {
     return {
       imagecropperShow: false,
@@ -40,9 +43,10 @@ export default {
 </script>
 
 <style scoped>
-.avatar {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-}
+  .avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
 </style>
+

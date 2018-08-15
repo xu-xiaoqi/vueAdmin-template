@@ -1,7 +1,8 @@
 <template>
   <div class="icons-container">
     <p class="warn-content">
-      <a href="https://panjiachen.github.io/vue-element-admin-site/guide/advanced/icon.html" target="_blank">Add and use</a>
+      <a href="https://panjiachen.github.io/vue-element-admin-site/guide/advanced/icon.html" target="_blank">Add and use
+      </a>
     </p>
     <div class="icons-wrapper">
       <div v-for="item of iconsMap" :key="item" @click="handleClipboard(generateIconCode(item),$event)">
@@ -31,7 +32,7 @@ export default {
     }
   },
   mounted() {
-    const iconsMap = icons.state.iconsMap.map(i => {
+    const iconsMap = icons.state.iconsMap.map((i) => {
       return i.default.id.split('-')[1]
     })
     this.iconsMap = iconsMap
@@ -69,7 +70,7 @@ export default {
     font-size: 24px;
     margin-top: 10px;
   }
-  .disabled {
+  .disabled{
     pointer-events: none;
   }
 }

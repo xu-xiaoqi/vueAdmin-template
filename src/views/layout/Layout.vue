@@ -4,14 +4,14 @@
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
       <navbar></navbar>
-      <!-- <tags-view></tags-view> -->
+      <tags-view></tags-view>
       <app-main></app-main>
     </div>
   </div>
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from './components'
+import { Navbar, Sidebar, AppMain, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
@@ -19,8 +19,8 @@ export default {
   components: {
     Navbar,
     Sidebar,
-    AppMain
-    // TagsView
+    AppMain,
+    TagsView
   },
   mixins: [ResizeMixin],
   computed: {
@@ -33,6 +33,7 @@ export default {
     classObj() {
       return {
         hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
       }
@@ -53,6 +54,10 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
+    &.mobile.openSidebar{
+      position: fixed;
+      top: 0;
+    }
   }
   .drawer-bg {
     background: #000;

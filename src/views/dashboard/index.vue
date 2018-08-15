@@ -11,17 +11,16 @@ import editorDashboard from './editor'
 
 export default {
   name: 'dashboard',
-  components: {
-    adminDashboard,
-    editorDashboard
-  },
-  computed: {
-    ...mapGetters(['name', 'roles'])
-  },
+  components: { adminDashboard, editorDashboard },
   data() {
     return {
       currentRole: 'adminDashboard'
     }
+  },
+  computed: {
+    ...mapGetters([
+      'roles'
+    ])
   },
   created() {
     if (!this.roles.includes('admin')) {
